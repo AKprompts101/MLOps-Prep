@@ -1,10 +1,10 @@
 class chatbook:
     def __init__(self):
-        print("init called")
+        # print("init called")
         self.username = ''
         self.password = ''
         self.loggedin = False
-        print("about to call method")
+        # print("about to call method")
         self.menu()
 
 
@@ -14,16 +14,16 @@ class chatbook:
                           2. Press 2 to sign in
                           3. Press 3 to write a post
                           4. Press 4 to message a friends
-                          Press any other key to exit \n""")
+                          Press any other key to exit \n =>""")
 
         if user_input == "1":
             self.signup()
         elif user_input == "2":
             self.sighin()
         elif user_input == "3":
-            pass
+            self.mypost()
         elif user_input == "4":
-            pass
+            self.sendmsg()
         else:
             exit()
 
@@ -52,4 +52,27 @@ class chatbook:
         print("\n")
         self.menu()
 
-obj = chatbook()
+
+    def mypost(self):
+        if self.loggedin==True:
+            txt = input("Enter your post here => ")
+            print(f"Following content has been posted => {txt}")
+        else:
+            print("You need to signin first to post")
+        
+        print("\n")
+        self.menu()
+
+    def sendmsg(self):
+        if self.loggedin==True:
+            frnd = input ("Whom to send this msg => ")
+            txt = input("Enter your msg here => ")
+            print(f"Your msg has been send to {frnd}")
+        else:
+            print("Please enter your correct username and password")
+        print("\n")
+        self.menu()    
+
+
+# user1 = chatbook()
+# check importsfiles.py
